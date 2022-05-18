@@ -8,24 +8,27 @@ constructor(){
         bio : "theatre",
         profession : "Developer FullStack",
         imgSrc : "profile.jpg",
+        timer:0,
 
     }
+
 }
 componentDidMount(){
-console.log("component Did Mount");
+this.timerId=setInterval(()=>{this.setState({timer:this.state.timer+1})},1000)
 }
 componentDidUpdate(){
     console.log("Updating");
 
 }
 componentWillUnmount(){
-    console.log("component Will Unmount");
+    clearInterval(this.timerId);
 
 }
 render(){
 
     return(
         <div> 
+            <p>{this.state.timer}</p>
             <h1>Checkpoint State</h1>
 <p>{this.state.fullName}</p>
 <p>{this.state.bio}</p>
